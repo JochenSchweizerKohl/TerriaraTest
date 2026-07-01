@@ -1,0 +1,10 @@
+# Build output
+bin/
+obj/
+
+# Local tModLoader build wiring (generated during environment setup; contains a
+# machine-specific absolute path to the tModLoader install's tMLMod.targets)
+/tModLoader.targets
+
+# tModLoader build artifacts
+*.tmod

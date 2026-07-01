@@ -1,0 +1,7 @@
+Spawn Anchor lets you set your personal spawn point anywhere, instantly, with style.
+
+Craft it by hand from 10 Stone Blocks. Left-click to anchor your spawn to your
+current location (with a flashy burst of effects) - use it again anywhere to move
+the anchor. Right-click to clear the anchor and restore your default spawn.
+
+Works with death respawns and the Magic Mirror, in singleplayer and multiplayer.
