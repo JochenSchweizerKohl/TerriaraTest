@@ -1,0 +1,3 @@
+displayName = Spawn Anchor
+author = Cursor
+version = 0.1

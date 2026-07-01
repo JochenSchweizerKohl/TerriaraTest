@@ -1,0 +1,12 @@
+Items: {
+	SpawnAnchorItem: {
+		DisplayName: Spawn Anchor
+		Tooltip:
+			'''
+			Sets your spawn point to your current location
+			Use it again anywhere to move your spawn point
+			'''
+	}
+}
+
+Info.SpawnSet: Spawn point set!
