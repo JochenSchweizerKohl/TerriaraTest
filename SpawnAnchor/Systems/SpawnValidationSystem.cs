@@ -15,12 +15,37 @@ namespace SpawnAnchor.Systems
         {
             if (orig(x, y))
                 return true;
-            if (Main.dedServ)
+
+            if (!AnchorAreaIsClear(x, y))
                 return false;
-            Player local = Main.LocalPlayer;
-            return local != null && local.active
-                && local.TryGetModPlayer(out AnchorPlayer ap)
-                && ap.AnchorMatches(x, y);
+
+            // CheckSpawn is static; identify the spawning player by the coords passed
+            // (Player.Spawn passes that player's SpawnX/SpawnY). Works on server and
+            // remote clients once anchors are synced.
+            foreach (Player p in Main.ActivePlayers)
+            {
+                if (p.SpawnX == x && p.SpawnY == y
+                    && p.TryGetModPlayer(out AnchorPlayer ap)
+                    && ap.AnchorMatches(x, y))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Vanilla spawn placement puts the player's feet at the top of tile row y.
+        // The player hitbox fits in a 3-wide, 3-tall tile area above that row. If the
+        // area was filled in after anchoring, fail so vanilla falls back to world spawn.
+        private static bool AnchorAreaIsClear(int x, int y)
+        {
+            if (!WorldGen.InWorld(x, y, 10))
+                return false;
+            for (int i = x - 1; i <= x + 1; i++)
+                for (int j = y - 3; j < y; j++)
+                    if (WorldGen.SolidTile(i, j, false))
+                        return false;
+            return true;
         }
     }
 }

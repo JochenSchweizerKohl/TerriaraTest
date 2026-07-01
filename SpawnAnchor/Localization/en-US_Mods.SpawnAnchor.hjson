@@ -3,10 +3,20 @@ Items: {
 		DisplayName: Spawn Anchor
 		Tooltip:
 			'''
-			Sets your spawn point to your current location
-			Use it again anywhere to move your spawn point
+			Anchors your spawn point to where you stand
+			Use again elsewhere to move the anchor
+			Right-click to clear it and restore your default spawn
+			Works with death respawns and the Magic Mirror
 			'''
+		AnchorStatus: Anchored at ({0}, {1})
+		NoAnchorStatus: No anchor set in this world
 	}
 }
 
-Info.SpawnSet: Spawn point set!
+Info: {
+	SpawnSet: Spawn point set!
+	SpawnSetDetail: Spawn anchored at ({0}, {1}).
+	SpawnSetFailed: Cannot anchor here!
+	SpawnCleared: Spawn anchor cleared.
+	NoAnchorToClear: No spawn anchor to clear.
+}
